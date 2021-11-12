@@ -45,10 +45,16 @@ gr.Interface(
     description = description, 
     allow_flagging = False,
     layout = 'horizontal',
-    theme = 'compact',
+    theme = 'darkdefault',
     thumbnail = '.\\assets\\dog1.jpg',
     examples = [
         ['./assets/cat0.jpeg'],
-        ['./assets/dog0.jpg']
+        ['./assets/cat1.png'],
+        ['./assets/cat2.jpg'],
+        ['./assets/cat3.jpg'],
+        ['./assets/dog0.jpg'],
+        ['./assets/dog1.jpg'],
+        ['./assets/dog2.jpeg'],
+        ['./assets/dog3.jpeg']
         ]
     ).launch()
