@@ -1,2 +1,2 @@
 # ML-project
-Cats vs Dogs classifier based on CNNs implemented using PyTorch
+Cats vs Dogs classifier trained on MobileNetV2 implemented using PyTorch

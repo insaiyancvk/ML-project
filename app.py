@@ -1,6 +1,5 @@
 import gradio as gr
 from torchvision import transforms
-# from torchvision.models.model import model50
 import torch.nn as nn
 import torch, warnings
 warnings.filterwarnings("ignore")
@@ -34,7 +33,7 @@ def predict(img):
     return {labels[i]: float(preds[i]) for i in range(len(labels))}
 
 title = "Cats Vs Dogs"
-description = "Demo for cat-dog classifier. To use it, simply upload the picture, or click one of the examples below to load them."
+description = "Demo for cat-dog classifier. To use it, simply upload A picture, or click one of the examples from below to load them."
 
 inputs = gr.inputs.Image()
 outputs = gr.outputs.Label(num_top_classes=2)
