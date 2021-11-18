@@ -1,3 +1,32 @@
-# ML-project
+# Cats and Dogs classifier
 [![](https://img.shields.io/badge/heroku-deployed-green)](https://catdogvision.herokuapp.com/)
-Cats vs Dogs classifier trained on MobileNetV2 implemented using PyTorch
+
+![](.\assets\demo.png)
+
+Cats vs Dogs classifier trained on MobileNetV2. Trained and implemented using PyTorch.
+
+# Setup
+
+Clone the repository:
+
+```
+git clone https://github.com/insaiyancvk/catdogvision
+```
+
+Navigate into the folder
+
+```
+cd catdogvision
+```
+
+Install dependencies
+
+```
+pip install torch torchvision pillow requests
+```
+
+Run the CLI app:
+
+```
+python cli.py
+```
