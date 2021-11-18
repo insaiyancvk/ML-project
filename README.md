@@ -1,7 +1,7 @@
 # Cats and Dogs classifier
 [![](https://img.shields.io/badge/heroku-deployed-green)](https://catdogvision.herokuapp.com/)
 
-![](.\assets\demo.png)
+![](/assets/demo.png)
 
 Cats vs Dogs classifier trained on MobileNetV2. Trained and implemented using PyTorch.
 
