@@ -2,6 +2,8 @@ from torchvision import transforms
 
 import torch.nn as nn
 import torch, warnings, sys, os, requests, argparse
+from rich.table import Table
+from rich.console import Console
 
 warnings.filterwarnings("ignore")
 from PIL import Image
@@ -15,6 +17,7 @@ grp.add_argument('-u', '--url', type=str, help='URL of the image', default=None)
 args = parser.parse_args()
 
 img = None
+
 
 if args.path is not None:
 
@@ -35,6 +38,10 @@ if args.url is not None:
         print(f'Error HTTP {req.status_code}')
         sys.exit()
 
+if img is None:
+    
+    print("\nusage: cli.py [-h] [-p PATH | -u URL]\n")
+    exit()
 
 labels = [
     'Cat',
@@ -42,7 +49,9 @@ labels = [
 ]
 
 torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
-model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=False)
+
+model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=False, verbose=False)
+
 model.classifier = nn.Sequential(
     nn.Dropout(p=0.2, inplace=False),
     nn.Linear(in_features=1280, out_features = 2)
@@ -63,4 +72,8 @@ if img is not None:
     
     preds = nn.functional.softmax(model(img_processed)[0], dim=0)
     
-    print({labels[i]: float(preds[i]) for i in range(len(labels))})
+    table = Table(show_header=True, header_style="bold cyan")
+    table.add_column("Cat")
+    table.add_column("Dog")
+    table.add_row(f"{float(preds[0])*100:.2f}%",f"{float(preds[1])*100:.2f}%")
+    Console().print("\t\t",table)
