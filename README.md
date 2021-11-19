@@ -13,13 +13,15 @@ Clone the repository:
 git clone https://github.com/insaiyancvk/catdogvision
 ```
 
-Navigate into the folder
+Navigate into the folder:
 
 ```
 cd catdogvision
 ```
 
-Install dependencies
+## For running CLI app:
+
+Install dependencies:
 
 ```
 pip install torch torchvision pillow requests
@@ -29,4 +31,15 @@ Run the CLI app:
 
 ```
 python cli.py
+```
+## For running the web app:
+
+Install dependencies:
+```
+pip install -r requirements.txt
+```
+
+Run the app:
+```
+python app.py
 ```
